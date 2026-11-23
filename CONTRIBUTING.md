@@ -4,7 +4,7 @@ Thanks for helping. A few rules keep this project safe to maintain.
 
 ## Hard boundary
 
-chatwarden reads **plain, already-readable** message stores and nothing else.
+WXChatwarden reads **plain, already-readable** message stores and nothing else.
 We do not accept, in code, docs, issues or comments:
 
 - decryption of any chat client's database or media, key extraction, memory

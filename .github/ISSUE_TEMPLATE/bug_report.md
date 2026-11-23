@@ -21,7 +21,7 @@ if possible, a JSONL transcript for `tools/replay_jsonl.py` with invented text.
 
 ## Environment
 
-- chatwarden commit:
+- WXChatwarden commit:
 - Python version:
 - Running in Docker / directly:
 - Sink (`CW_SINK`) and message source (`CW_DB_BACKEND`):

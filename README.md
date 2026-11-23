@@ -1,8 +1,8 @@
-# chatwarden
+# WXChatwarden
 
 [English](README.en.md) · [架构文档](docs/ARCHITECTURE.md) · [参与贡献](CONTRIBUTING.md)
 
-**有分寸、有记忆、守规矩的wx群聊与私聊助手。** chatwarden 从一个**已经可读的**本地消息库里读取新消息，平时安静旁听，只在被点名、被追问或讨论正热时自然接话；它能直接看原图、听原声，按群记住共识与成员偏好，再把回复交给你配置的发送端。
+**有分寸、有记忆、守规矩的wx群聊与私聊助手。** WXChatwarden 从一个**已经可读的**本地消息库里读取新消息，平时安静旁听，只在被点名、被追问或讨论正热时自然接话；它能直接看原图、听原声，按群记住共识与成员偏好，再把回复交给你配置的发送端。
 
 > **声明**
 > 1. 本项目不包含、不提供任何解密聊天数据库、提取密钥或逆向私有协议的代码、工具或教程，也不接受此类贡献。
@@ -11,7 +11,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/overview-dark.png">
-  <img alt="chatwarden 从消息读取到核验发送的产品闭环" src="docs/images/overview-light.png">
+  <img alt="WXChatwarden 从消息读取到核验发送的产品闭环" src="docs/images/overview-light.png">
 </picture>
 
 ## 一眼看懂
@@ -28,7 +28,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.png">
-  <img alt="chatwarden 双进程职责划分与三处扩展接口" src="docs/images/architecture-light.png">
+  <img alt="WXChatwarden 双进程职责划分与三处扩展接口" src="docs/images/architecture-light.png">
 </picture>
 
 三处扩展接口，都通过环境变量选择，细节见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)：

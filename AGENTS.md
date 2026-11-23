@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Notes for coding agents (Codex, Claude Code, Gemini CLI, Cursor, and others)
-and for humans working on chatwarden. `CLAUDE.md` only points here.
+and for humans working on WXChatwarden. `CLAUDE.md` only points here.
 
 Human-facing docs: `README.md` / `README.en.md` (overview, demo),
 `docs/ARCHITECTURE.md` (interfaces and module map), `CONTRIBUTING.md` (DCO,
@@ -13,7 +13,7 @@ an agent needs on top of those.
 A PR that breaks one of these is closed. If a task seems to need breaking one,
 stop and ask in the issue or PR instead.
 
-1. **No decryption code, ever.** chatwarden only reads message stores that are
+1. **No decryption code, ever.** WXChatwarden only reads message stores that are
    already plain, readable SQLite. Do not add code, docs, comments, tests,
    issues or links that decrypt any chat client's database or media, extract
    keys, scan process memory, or speak a reverse-engineered private protocol,
@@ -47,8 +47,8 @@ splitting up the large `GroupWorker` methods (`__init__`, `_handle_text`,
 ## 2. Getting started
 
 ```sh
-git clone https://github.com/Nightchamp/chatwarden.git
-cd chatwarden
+git clone https://github.com/Nightchamp/WXChatwarden.git
+cd WXChatwarden
 git checkout -b <your-branch>
 
 pip install silk-python zstandard          # imported by voice/db code
@@ -93,6 +93,10 @@ are the only supported extension points. `tools/replay_jsonl.py` builds a store
 from a JSONL transcript (used by the demo), `tools/fake_llm.py` is a stand-in
 model, `bot/groupsctl.py` edits `groups.json`. Configuration is environment
 variables (`.env.example`) plus a hot-reloaded `groups.json`.
+
+The project is called WXChatwarden; the code keeps its original name
+`chatwarden` (the Python package, the `CW_` env prefix, `/etc/chatwarden`,
+`/var/lib/chatwarden`, `/opt/chatwarden`). Don't rename those.
 
 ## 4. How core and the workers are wired
 

@@ -43,7 +43,7 @@ same methods: `reload`, `maybe_refresh`, `rel_keys`, `message_shards`,
 `media_shards`, `find_rel_key`, `path`, `path_with_status`, `has_wal_tail`,
 `direct_query`, `discard`, plus the `account_id` property.
 
-chatwarden only ever opens files that are already readable. Producing such
+WXChatwarden only ever opens files that are already readable. Producing such
 files from any chat client is out of scope: this repository does not do it,
 does not document it and does not link to anything that does.
 

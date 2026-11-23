@@ -1,8 +1,8 @@
-# chatwarden
+# WXChatwarden
 
 [中文](README.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
 
-**A group- and private-chat assistant that knows when to speak, remembers, and plays by the rules.** chatwarden reads new messages from a local message store that is **already readable**, listens quietly most of the time, and joins in only when it is called, followed up, or a lively discussion invites it. It looks at full-size images, listens to the original voice audio, remembers per-group agreements and per-member preferences, and hands replies to the sink you configure.
+**A group- and private-chat assistant that knows when to speak, remembers, and plays by the rules.** WXChatwarden reads new messages from a local message store that is **already readable**, listens quietly most of the time, and joins in only when it is called, followed up, or a lively discussion invites it. It looks at full-size images, listens to the original voice audio, remembers per-group agreements and per-member preferences, and hands replies to the sink you configure.
 
 > **Disclaimer**
 > 1. This project is not affiliated with, authorized by or endorsed by Tencent or any of its products.
@@ -12,7 +12,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/overview-dark.png">
-  <img alt="chatwarden end to end: from reading the store to a verified send" src="docs/images/overview-light.png">
+  <img alt="WXChatwarden end to end: from reading the store to a verified send" src="docs/images/overview-light.png">
 </picture>
 
 The diagrams are labelled in Chinese; the sections below explain each one.
