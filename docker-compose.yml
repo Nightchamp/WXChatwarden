@@ -1,0 +1,35 @@
+# Two processes: the model gateway and the bot. The bot shares the gateway's
+# network namespace, so it reaches it on 127.0.0.1 and nothing is published.
+services:
+  gateway:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    command:
+      - sh
+      - -c
+      - |
+        [ -s /etc/chatwarden/secrets/gateway.key ] || \
+          python3 -c "import secrets; print(secrets.token_urlsafe(32), end='')" \
+            > /etc/chatwarden/secrets/gateway.key
+        exec python3 gateway/server.py
+    volumes:
+      - secrets:/etc/chatwarden/secrets
+
+  bot:
+    build: .
+    restart: unless-stopped
+    network_mode: "service:gateway"
+    depends_on:
+      - gateway
+    env_file: .env
+    environment:
+      CW_PLAIN_DB_DIR: /store
+      CW_LLM_ENDPOINT: http://127.0.0.1:8643/v1/execute
+    volumes:
+      - secrets:/etc/chatwarden/secrets:ro
+      - ./data:/var/lib/chatwarden
+      - ${CW_STORE_DIR:-./store}:/store
+
+volumes:
+  secrets:

@@ -1,0 +1,18 @@
+# Offline demo: adds a stand-in model server so no API key is needed.
+#   docker compose -f docker-compose.yml -f docker-compose.demo.yml up --build
+services:
+  gateway:
+    environment:
+      CW_LLM_BASE_URL: http://127.0.0.1:8650/v1
+      CW_LLM_API_KEY: demo
+      CW_LLM_MODEL: fake
+  fake-llm:
+    build: .
+    network_mode: "service:gateway"
+    command: ["python3", "tools/fake_llm.py"]
+  bot:
+    environment:
+      CW_BOT_WXID: wxid_demo_bot
+      CW_ACCOUNT_ID: wxid_demo_bot
+      CW_SINK: jsonl
+      CW_SINK_JSONL: /var/lib/chatwarden/outbox.jsonl

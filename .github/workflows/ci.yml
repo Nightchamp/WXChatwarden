@@ -1,0 +1,24 @@
+name: ci
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: System packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg python3-gi gir1.2-atspi-2.0 python3-pip
+          sudo python3 -m pip install --break-system-packages silk-python zstandard
+          sudo mkdir -p /etc/chatwarden/secrets /var/lib/chatwarden
+          sudo chown -R "$USER" /etc/chatwarden /var/lib/chatwarden
+      - name: Gateway unit tests
+        run: python3 -m unittest tests.test_gateway -v
+      - name: Bot smoke tests
+        run: sh tests/run_smokes.sh
+      - name: End-to-end demo
+        run: sh tests/e2e_demo.sh
